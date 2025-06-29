@@ -87,11 +87,11 @@ export default function About() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800"
-              alt="Professional headshot of performance ads consultant"
-              className="rounded-2xl shadow-2xl w-full"
+              src="/attached_assets/CB253C1F-0E2F-4C29-B298-DA897B45A71E_1751228101131.JPG"
+              alt="Professional headshot of Heidi Williams-Foy"
+              className="rounded-2xl shadow-2xl w-80 h-80 object-cover"
             />
             
             {/* Certification badges */}
