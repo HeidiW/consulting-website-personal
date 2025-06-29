@@ -43,11 +43,30 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-              alt="Digital marketing dashboard and analytics"
-              className="rounded-2xl shadow-2xl w-full"
-            />
+            <div className="bg-neutral-900 rounded-2xl shadow-2xl p-6 font-mono text-sm overflow-hidden">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-accent font-semibold">TikTok Pixel Base Code</div>
+                <div className="text-neutral-400 text-xs">ttclid tracking</div>
+              </div>
+              <pre className="text-neutral-300 leading-relaxed overflow-x-auto">
+{`<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";
+  ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};
+  var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;
+  var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+  
+  ttq.load('PIXEL_ID_HERE');
+  ttq.page();
+}(window, document, 'ttq');
+</script>`}
+              </pre>
+            </div>
             <div className="absolute -bottom-6 -left-6 gradient-warm p-6 rounded-xl shadow-lg border border-white/20 backdrop-blur-sm">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center">
