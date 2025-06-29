@@ -3,38 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 47%, 11%);
-  --muted: hsl(210, 40%, 98%);
-  --muted-foreground: hsl(215, 16%, 47%);
+  --background: hsl(9, 48%, 95%);
+  --foreground: hsl(148, 100%, 15%);
+  --muted: hsl(9, 88%, 90%);
+  --muted-foreground: hsl(120, 100%, 20%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222, 47%, 11%);
+  --popover-foreground: hsl(148, 100%, 15%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222, 47%, 11%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --primary: hsl(262, 83%, 58%);
+  --card-foreground: hsl(148, 100%, 15%);
+  --border: hsl(144, 15%, 87%);
+  --input: hsl(144, 15%, 87%);
+  --primary: hsl(120, 100%, 22%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(220, 14%, 96%);
-  --secondary-foreground: hsl(220, 9%, 46%);
-  --accent: hsl(142, 76%, 36%);
+  --secondary: hsl(25, 100%, 86%);
+  --secondary-foreground: hsl(148, 100%, 15%);
+  --accent: hsl(101, 100%, 35%);
   --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(262, 83%, 58%);
+  --ring: hsl(120, 100%, 22%);
   --radius: 0.75rem;
   
-  /* Custom neutral palette */
-  --neutral-50: hsl(210, 40%, 98%);
-  --neutral-100: hsl(210, 40%, 96%);
-  --neutral-200: hsl(214, 32%, 91%);
-  --neutral-300: hsl(213, 27%, 84%);
-  --neutral-400: hsl(215, 20%, 65%);
-  --neutral-500: hsl(215, 16%, 47%);
-  --neutral-600: hsl(215, 19%, 35%);
-  --neutral-700: hsl(215, 25%, 27%);
-  --neutral-800: hsl(217, 33%, 17%);
-  --neutral-900: hsl(222, 47%, 11%);
+  /* Custom mixed palette - greens and warm tones */
+  --neutral-50: hsl(19, 100%, 93%);
+  --neutral-100: hsl(25, 100%, 86%);
+  --neutral-200: hsl(28, 98%, 80%);
+  --neutral-300: hsl(144, 15%, 87%);
+  --neutral-400: hsl(101, 100%, 35%);
+  --neutral-500: hsl(120, 100%, 25%);
+  --neutral-600: hsl(120, 100%, 22%);
+  --neutral-700: hsl(120, 100%, 20%);
+  --neutral-800: hsl(148, 100%, 15%);
+  --neutral-900: hsl(148, 100%, 10%);
 }
 
 .dark {
@@ -76,10 +76,18 @@
 
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(142, 76%, 36%) 100%);
+    background: linear-gradient(135deg, hsl(120, 100%, 22%) 0%, hsl(101, 100%, 35%) 100%);
   }
   
   .gradient-background {
-    background: linear-gradient(135deg, hsl(210, 40%, 98%) 0%, hsl(262, 83%, 97%) 100%);
+    background: linear-gradient(135deg, hsl(19, 100%, 93%) 0%, hsl(144, 15%, 87%) 100%);
+  }
+  
+  .gradient-warm {
+    background: linear-gradient(135deg, hsl(28, 98%, 80%) 0%, hsl(25, 100%, 86%) 100%);
+  }
+  
+  .gradient-nature {
+    background: linear-gradient(45deg, hsl(148, 100%, 15%) 0%, hsl(120, 100%, 22%) 25%, hsl(101, 100%, 35%) 75%, hsl(90, 100%, 44%) 100%);
   }
 }

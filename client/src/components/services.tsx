@@ -13,8 +13,8 @@ export default function Services() {
         "Creative Testing & Optimization",
         "Conversion API Setup"
       ],
-      color: "text-blue-600",
-      bgColor: "bg-blue-100"
+      color: "text-primary",
+      bgColor: "bg-neutral-50"
     },
     {
       icon: SiTiktok,
@@ -25,8 +25,8 @@ export default function Services() {
         "Generation Z Targeting",
         "Spark Ads Optimization"
       ],
-      color: "text-pink-600",
-      bgColor: "bg-pink-100"
+      color: "text-accent",
+      bgColor: "bg-neutral-100"
     },
     {
       icon: SiReddit,
@@ -37,8 +37,8 @@ export default function Services() {
         "Subreddit Targeting",
         "Native Ad Formats"
       ],
-      color: "text-orange-600",
-      bgColor: "bg-orange-100"
+      color: "text-neutral-600",
+      bgColor: "bg-neutral-200"
     }
   ];
 
