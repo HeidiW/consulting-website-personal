@@ -19,7 +19,7 @@ export default function Hero() {
             </div>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
               Scale Your Business with{" "}
-              <span className="gradient-primary bg-clip-text text-transparent">Expert Performance Ads</span>
+              <span className="text-primary">Expert Performance Ads</span>
             </h1>
             <p className="text-xl text-neutral-700 mb-8 leading-relaxed bg-white/40 backdrop-blur-sm p-6 rounded-2xl">
               I help businesses maximize their ROI through strategic advertising campaigns on Meta, TikTok, and Reddit. Get data-driven results that actually move the needle.
