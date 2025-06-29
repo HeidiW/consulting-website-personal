@@ -88,27 +88,22 @@ export default function About() {
           </div>
 
           <div className="relative flex justify-center">
-            <img
-              src="/attached_assets/CB253C1F-0E2F-4C29-B298-DA897B45A71E_1751228101131.JPG"
-              alt="Professional headshot of Heidi Williams-Foy"
-              className="rounded-2xl shadow-2xl w-80 h-80 object-cover"
-            />
-            
-            {/* Certification badges */}
-            <Card className="absolute -bottom-6 -right-6 shadow-lg">
-              <CardContent className="p-4">
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    <span className="font-medium">Meta Certified</span>
+            {/* Certification badges - now standalone */}
+            <Card className="shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-4">Certifications</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                    <span className="font-medium text-neutral-700">Meta Certified</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="font-medium">Google Ads Certified</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="font-medium text-neutral-700">Google Ads Certified</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
-                    <span className="font-medium">TikTok Marketing Partner</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-yellow-600 rounded-full"></div>
+                    <span className="font-medium text-neutral-700">TikTok Marketing Partner</span>
                   </div>
                 </div>
               </CardContent>
