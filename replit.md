@@ -93,7 +93,8 @@ This is a modern full-stack web application for a performance advertising consul
 
 ## Changelog
 
-- June 29, 2025. Initial setup
+- June 29, 2025. Initial setup with in-memory storage
+- June 29, 2025. Added PostgreSQL database integration with Drizzle ORM
 
 ## User Preferences
 

@@ -1,4 +1,6 @@
 import { users, consultations, newsletters, blogPosts, type User, type InsertUser, type Consultation, type InsertConsultation, type Newsletter, type InsertNewsletter, type BlogPost, type InsertBlogPost } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -16,31 +18,91 @@ export interface IStorage {
   getBlogPost(id: number): Promise<BlogPost | undefined>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private consultations: Map<number, Consultation>;
-  private newsletters: Map<number, Newsletter>;
-  private blogPosts: Map<number, BlogPost>;
-  private currentUserId: number;
-  private currentConsultationId: number;
-  private currentNewsletterId: number;
-  private currentBlogPostId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.consultations = new Map();
-    this.newsletters = new Map();
-    this.blogPosts = new Map();
-    this.currentUserId = 1;
-    this.currentConsultationId = 1;
-    this.currentNewsletterId = 1;
-    this.currentBlogPostId = 1;
-
-    // Initialize with some blog posts
-    this.initializeBlogPosts();
+export class DatabaseStorage implements IStorage {
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
-  private initializeBlogPosts() {
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async createConsultation(insertConsultation: InsertConsultation): Promise<Consultation> {
+    const [consultation] = await db
+      .insert(consultations)
+      .values({
+        ...insertConsultation,
+        company: insertConsultation.company || null,
+        currentSpend: insertConsultation.currentSpend || null,
+        platforms: insertConsultation.platforms || null,
+        goals: insertConsultation.goals || null,
+      })
+      .returning();
+    return consultation;
+  }
+
+  async getConsultations(): Promise<Consultation[]> {
+    return await db.select().from(consultations);
+  }
+
+  async createNewsletter(insertNewsletter: InsertNewsletter): Promise<Newsletter> {
+    const [newsletter] = await db
+      .insert(newsletters)
+      .values({
+        ...insertNewsletter,
+        interests: insertNewsletter.interests || null,
+      })
+      .returning();
+    return newsletter;
+  }
+
+  async getNewsletters(): Promise<Newsletter[]> {
+    return await db.select().from(newsletters);
+  }
+
+  async createBlogPost(insertBlogPost: InsertBlogPost): Promise<BlogPost> {
+    const [blogPost] = await db
+      .insert(blogPosts)
+      .values({
+        ...insertBlogPost,
+        imageUrl: insertBlogPost.imageUrl || null,
+      })
+      .returning();
+    return blogPost;
+  }
+
+  async getBlogPosts(): Promise<BlogPost[]> {
+    const posts = await db.select().from(blogPosts);
+    return posts.sort((a, b) => {
+      const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+      const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+      return dateB - dateA;
+    });
+  }
+
+  async getBlogPost(id: number): Promise<BlogPost | undefined> {
+    const [blogPost] = await db.select().from(blogPosts).where(eq(blogPosts.id, id));
+    return blogPost || undefined;
+  }
+
+  async initializeData(): Promise<void> {
+    // Check if blog posts already exist
+    const existingPosts = await this.getBlogPosts();
+    if (existingPosts.length > 0) {
+      return; // Data already initialized
+    }
+
+    // Insert initial blog posts
     const posts = [
       {
         title: "iOS 17.4 Update: What It Means for Your Meta Ad Performance",
@@ -65,82 +127,10 @@ export class MemStorage implements IStorage {
       },
     ];
 
-    posts.forEach(post => {
-      const blogPost: BlogPost = {
-        ...post,
-        id: this.currentBlogPostId++,
-        publishedAt: new Date(),
-      };
-      this.blogPosts.set(blogPost.id, blogPost);
-    });
-  }
-
-  async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentUserId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
-  }
-
-  async createConsultation(insertConsultation: InsertConsultation): Promise<Consultation> {
-    const id = this.currentConsultationId++;
-    const consultation: Consultation = { 
-      ...insertConsultation, 
-      id,
-      createdAt: new Date(),
-    };
-    this.consultations.set(id, consultation);
-    return consultation;
-  }
-
-  async getConsultations(): Promise<Consultation[]> {
-    return Array.from(this.consultations.values());
-  }
-
-  async createNewsletter(insertNewsletter: InsertNewsletter): Promise<Newsletter> {
-    const id = this.currentNewsletterId++;
-    const newsletter: Newsletter = { 
-      ...insertNewsletter, 
-      id,
-      createdAt: new Date(),
-    };
-    this.newsletters.set(id, newsletter);
-    return newsletter;
-  }
-
-  async getNewsletters(): Promise<Newsletter[]> {
-    return Array.from(this.newsletters.values());
-  }
-
-  async createBlogPost(insertBlogPost: InsertBlogPost): Promise<BlogPost> {
-    const id = this.currentBlogPostId++;
-    const blogPost: BlogPost = { 
-      ...insertBlogPost, 
-      id,
-      publishedAt: new Date(),
-    };
-    this.blogPosts.set(id, blogPost);
-    return blogPost;
-  }
-
-  async getBlogPosts(): Promise<BlogPost[]> {
-    return Array.from(this.blogPosts.values())
-      .sort((a, b) => new Date(b.publishedAt!).getTime() - new Date(a.publishedAt!).getTime());
-  }
-
-  async getBlogPost(id: number): Promise<BlogPost | undefined> {
-    return this.blogPosts.get(id);
+    for (const post of posts) {
+      await this.createBlogPost(post);
+    }
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
