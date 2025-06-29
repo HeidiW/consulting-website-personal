@@ -17,7 +17,7 @@ export default function Hero() {
             <div className="text-lg font-medium text-primary mb-4">
               Hi, I'm Heidi Williams Foy
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
               Scale Your Business with{" "}
               <span className="text-primary">Expert Performance Ads</span>
             </h1>
