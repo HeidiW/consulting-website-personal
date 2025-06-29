@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="text-2xl font-bold mb-4">
-              <span className="text-primary">Ads</span>Expert
+              <span className="text-primary">Heidi</span> Williams Foy
             </div>
             <p className="text-neutral-300 mb-6 max-w-md">
               Expert performance advertising consultant specializing in Meta, TikTok, and Reddit ads. Helping businesses scale profitably through data-driven strategies.
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-neutral-700 mt-8 pt-8 text-center text-neutral-400">
-          <p>&copy; {currentYear} AdsExpert. All rights reserved.</p>
+          <p>&copy; {currentYear} Heidi Williams Foy. All rights reserved.</p>
         </div>
       </div>
     </footer>

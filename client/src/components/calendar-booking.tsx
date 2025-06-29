@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CalendarBookingProps {
   selectedDate: string;
@@ -16,10 +17,10 @@ export default function CalendarBooking({
   onTimeSelect,
 }: CalendarBookingProps) {
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
+  const [displayMonth, setDisplayMonth] = useState(currentDate.getMonth());
+  const [displayYear, setDisplayYear] = useState(currentDate.getFullYear());
 
-  // Generate calendar days for current month
+  // Generate calendar days for display month
   const getDaysInMonth = (month: number, year: number) => {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
@@ -41,7 +42,7 @@ export default function CalendarBooking({
     return days;
   };
 
-  const days = getDaysInMonth(currentMonth, currentYear);
+  const days = getDaysInMonth(displayMonth, displayYear);
   const monthNames = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -52,19 +53,47 @@ export default function CalendarBooking({
   ];
 
   const handleDateSelect = (day: number) => {
-    const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dateStr = `${displayYear}-${String(displayMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     onDateSelect(dateStr);
   };
 
   const isDateSelected = (day: number) => {
-    const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dateStr = `${displayYear}-${String(displayMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     return selectedDate === dateStr;
   };
 
   const isPastDate = (day: number) => {
     const today = new Date();
-    const checkDate = new Date(currentYear, currentMonth, day);
+    const checkDate = new Date(displayYear, displayMonth, day);
     return checkDate < today;
+  };
+
+  const goToPreviousMonth = () => {
+    if (displayMonth === 0) {
+      setDisplayMonth(11);
+      setDisplayYear(displayYear - 1);
+    } else {
+      setDisplayMonth(displayMonth - 1);
+    }
+  };
+
+  const goToNextMonth = () => {
+    if (displayMonth === 11) {
+      setDisplayMonth(0);
+      setDisplayYear(displayYear + 1);
+    } else {
+      setDisplayMonth(displayMonth + 1);
+    }
+  };
+
+  const canGoToPreviousMonth = () => {
+    const today = new Date();
+    const todayMonth = today.getMonth();
+    const todayYear = today.getFullYear();
+    
+    if (displayYear > todayYear) return true;
+    if (displayYear === todayYear && displayMonth > todayMonth) return true;
+    return false;
   };
 
   return (
@@ -73,10 +102,25 @@ export default function CalendarBooking({
       <Card>
         <CardContent className="p-4">
           {/* Calendar Header */}
-          <div className="text-center mb-4">
+          <div className="flex items-center justify-between mb-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={goToPreviousMonth}
+              disabled={!canGoToPreviousMonth()}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
             <h5 className="font-medium text-neutral-900">
-              {monthNames[currentMonth]} {currentYear}
+              {monthNames[displayMonth]} {displayYear}
             </h5>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={goToNextMonth}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
 
           {/* Calendar Grid */}
