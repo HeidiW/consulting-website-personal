@@ -3,46 +3,46 @@ import { CheckCircle, Rocket, Users, TrendingUp, GraduationCap } from "lucide-re
 
 export default function About() {
   const stats = [
-    { value: "$50M+", label: "Ad Spend Managed" },
-    { value: "200+", label: "Clients Helped" },
-    { value: "250%", label: "Avg ROI Increase" },
+    { value: "$33M+", label: "Revenue Generated" },
+    { value: "25%", label: "Q2 Goal Increase" },
+    { value: "$2.3M+", label: "Major Client Wins" },
   ];
 
   const expertise = [
-    "Performance Marketing Strategy",
-    "Cross-Platform Attribution",
-    "Creative Testing & Optimization",
-    "Audience Development",
-    "Conversion Rate Optimization",
-    "Marketing Analytics & Reporting",
+    "Technical Solutions & Implementation",
+    "Revenue Generation & Client Success",
+    "Cross-Functional Team Leadership",
+    "Data Analysis & Dashboard Building",
+    "API Integration & Backend Solutions",
+    "Campaign Management & Optimization",
   ];
 
   const timeline = [
     {
-      year: "2024 - Present",
-      title: "Independent Performance Ads Consultant",
-      description: "Helping businesses scale with strategic advertising across Meta, TikTok, and Reddit platforms.",
+      year: "2023 - Present",
+      title: "Technical Solutions Consultant at TikTok",
+      description: "Delivered $32M in revenue for Apparel vertical in Q1. Led data cleaning and dashboard initiatives achieving best-in-class metrics.",
       icon: Rocket,
       color: "bg-primary"
     },
     {
-      year: "2020 - 2024",
-      title: "Senior Growth Marketing Manager at TechCorp",
-      description: "Led performance marketing for a $100M+ SaaS company, managing $2M+ monthly ad spend.",
+      year: "2021 - 2023",
+      title: "Customer Success Engineer II at Reddit",
+      description: "Led technical implementation of Reddit pixel and ads API. Launched high-profile campaigns for Samsung and Disney+ generating $825k in premiere weekend revenue.",
       icon: Users,
       color: "bg-secondary"
     },
     {
-      year: "2018 - 2020",
-      title: "Digital Marketing Specialist at GrowthAgency",
-      description: "Managed multi-platform campaigns for 50+ e-commerce and B2B clients.",
+      year: "2019 - 2020",
+      title: "Senior Technical Account Manager at Applicaster",
+      description: "Managed enterprise client engagements for mobile app migrations. Launched SportsMax streaming app with 200k+ installs and 120k average MAU.",
       icon: TrendingUp,
       color: "bg-accent"
     },
     {
-      year: "2016 - 2018",
-      title: "Started in Digital Marketing",
-      description: "Began journey in performance marketing with small business campaigns and continuous learning.",
+      year: "2015 - 2019",
+      title: "Sales Engineer at JW Player",
+      description: "Collaborated with sales teams securing six-figure deals from Walmart, Cisco Systems, MongoDB, Hearst, and Fox Sports. Drove revenue expansion up to 20x.",
       icon: GraduationCap,
       color: "bg-neutral-400"
     }
@@ -54,13 +54,13 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              About Your Performance Ads Expert
+              About Heidi Williams-Foy
             </h2>
             <p className="text-lg text-neutral-600 mb-6">
-              With 8+ years in performance marketing, I've managed over $50M in ad spend across Meta, TikTok, and Reddit, helping businesses scale from startup to enterprise level.
+              Highly competent technical solutions leader and web developer with a track record of driving client success, technical implementation, and revenue generation. Adept at managing complex projects and collaborating with cross-functional teams.
             </p>
             <p className="text-lg text-neutral-600 mb-8">
-              My approach combines data-driven strategy with creative excellence, ensuring every dollar spent contributes to meaningful business growth. I specialize in navigating the complexities of modern digital advertising while maintaining profitability at scale.
+              I bring energy and a positive attitude to everything I do, using strong communication skills to bridge the gap between technical and non-technical stakeholders. Committed to helping clients succeed by leveraging a strong technical background and considerable problem-solving abilities.
             </p>
             
             {/* Key Stats */}
