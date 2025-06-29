@@ -40,9 +40,9 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-neutral-300">
-              <li>hello@adsexpert.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>San Francisco, CA</li>
+              <li>heidi67west@gmail.com</li>
+              <li>Signal: heidiwilliamsfoy.67</li>
+              <li>Brooklyn, NY</li>
             </ul>
           </div>
         </div>

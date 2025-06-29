@@ -384,19 +384,15 @@ export default function Consult() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail className="text-primary h-5 w-5" />
-                    <span className="text-neutral-700">hello@adsexpert.com</span>
+                    <span className="text-neutral-700">heidi67west@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Linkedin className="text-primary h-5 w-5" />
-                    <a href="#" className="text-primary hover:text-secondary">
-                      LinkedIn Profile
-                    </a>
+                    <div className="text-primary h-5 w-5 flex items-center justify-center font-bold text-sm">S</div>
+                    <span className="text-neutral-700">Signal: heidiwilliamsfoy.67</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Twitter className="text-primary h-5 w-5" />
-                    <a href="#" className="text-primary hover:text-secondary">
-                      @adsexpert
-                    </a>
+                    <div className="text-primary h-5 w-5 flex items-center justify-center font-bold text-sm">📍</div>
+                    <span className="text-neutral-700">Brooklyn, NY</span>
                   </div>
                 </div>
               </div>
