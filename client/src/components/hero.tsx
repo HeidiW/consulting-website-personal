@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="text-lg font-medium text-primary mb-4 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full inline-block">
-              Hi, I'm Heidi Williams Foy
+              Hi, I'm Heidi Williams-Foy
             </div>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
               Scale Your Business with{" "}

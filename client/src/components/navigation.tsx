@@ -28,7 +28,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="text-xl font-bold text-neutral-900">
-              <span className="text-primary">Heidi</span> Williams Foy
+              <span className="text-primary">Heidi</span> Williams-Foy
             </div>
           </div>
           
