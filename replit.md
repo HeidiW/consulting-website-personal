@@ -95,7 +95,15 @@ This is a modern full-stack web application for a performance advertising consul
 
 - June 29, 2025. Initial setup with in-memory storage
 - June 29, 2025. Added PostgreSQL database integration with Drizzle ORM
+- June 29, 2025. Updated About page with authentic professional experience from TikTok, Reddit, and enterprise roles
+- June 29, 2025. Updated contact information to heidi67west@gmail.com and Signal: heidiwilliamsfoy.67
+- June 29, 2025. Hidden testimonials section temporarily until real client testimonials available
+- June 29, 2025. Removed photo from About page per user request
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Name display: "Williams-Foy" with hyphen throughout site
+Contact: heidi67west@gmail.com, Signal: heidiwilliamsfoy.67, Brooklyn NY
+Color scheme: Cal-poly-green palette mixed with warm peach/coral tones
+Professional focus: Technical solutions consulting for TikTok, Reddit, Meta advertising
