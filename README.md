@@ -29,6 +29,7 @@ PGUSER=your_pg_user
 PGPASSWORD=your_pg_password
 PGDATABASE=your_pg_database
 PGPORT=your_pg_port
+VITE_GTM_ID=your_google_tag_manager_id
 ```
 
 ## Local Development
