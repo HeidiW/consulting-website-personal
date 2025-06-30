@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
+import GoogleTagManager from "@/components/google-tag-manager";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <GoogleTagManager gtmId={import.meta.env.VITE_GTM_ID} />
         <Toaster />
         <Router />
       </TooltipProvider>
