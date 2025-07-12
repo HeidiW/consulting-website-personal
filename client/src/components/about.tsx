@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Rocket, Users, TrendingUp, GraduationCap } from "lucide-react";
+import profilePhoto from "@assets/profile-photo.jpg";
 
 export default function About() {
   const stats = [
@@ -53,6 +54,14 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
+            <div className="mb-8">
+              <img 
+                src={profilePhoto} 
+                alt="Heidi Williams-Foy - Performance Advertising Consultant" 
+                className="w-64 h-64 rounded-lg object-cover shadow-lg mx-auto lg:mx-0"
+              />
+            </div>
+            
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
               About Heidi Williams-Foy
             </h2>
